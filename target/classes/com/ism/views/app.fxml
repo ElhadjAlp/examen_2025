@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Alert?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.ism.Controllers.Impl.CommandeView">
+    <children>
+       
+        <TextField fx:id="telephoneField" layoutX="20" layoutY="20" promptText="Téléphone du client"/>
+        <TextField fx:id="nomClientField" layoutX="200" layoutY="20" promptText="Nom du client" editable="false"/>
+
+        <ComboBox fx:id="articleComboBox" layoutX="20" layoutY="60" prefWidth="200" promptText="Choisir un article"/>
+
+        <TextField fx:id="quantiteField" layoutX="240" layoutY="60" promptText="Quantité"/>
+
+       
+        <TableView fx:id="tableCommande" layoutX="20" layoutY="100" prefHeight="200" prefWidth="600">
+            <columns>
+                <TableColumn fx:id="articleColumn" text="Article" prefWidth="200"/>
+                <TableColumn fx:id="prixColumn" text="Prix" prefWidth="100"/>
+                <TableColumn fx:id="quantiteColumn" text="Quantité" prefWidth="100"/>
+                <TableColumn fx:id="montantColumn" text="Montant" prefWidth="100"/>
+                <TableColumn fx:id="actionsColumn" text="Actions" prefWidth="100"/>
+            </columns>
+        </TableView>
+
+        <Label fx:id="totalLabel" layoutX="20" layoutY="320" text="Total: 0,00 €"/>
+
+        
+        <Button text="Ajouter à la commande" layoutX="20" layoutY="350" onAction="#handleAddArticle"/>
+        <Button text="Valider la commande" layoutX="200" layoutY="350" onAction="#handleValidateCommande"/>
+        <Button text="Rechercher client" layoutX="400" layoutY="20" onAction="#handleSearchClient"/>
+    </children>
+</AnchorPane>
